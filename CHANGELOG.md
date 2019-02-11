@@ -1,5 +1,27 @@
 # Changelog
 
+## 2.3.5
+
+* Fix bug [#375](https://github.com/olivernn/lunr.js/issues/375) with fuzzy matching that meant insertions at the end of a word would not match. Thanks [Luca Ongaro](https://github.com/lucaong) for reporting and to [Rob Hoelz](https://github.com/hoelzro) for providing a fix.
+* Switch to using `Array.isArray` when checking for results from pipeline functions to support `vm.runInContext`, [#381](https://github.com/olivernn/lunr.js/pull/381) thanks [Rob Hoelz](https://github.com/hoelzro).
+
+## 2.3.4
+
+* Ensure that [inverted index is prototype-less](https://github.com/olivernn/lunr.js/pull/378) after serialization, thanks [Rob Hoelz](https://github.com/hoelzro).
+
+## 2.3.3
+
+* Fig bugs [#270](https://github.com/olivernn/lunr.js/issues/270) and [#368](https://github.com/olivernn/lunr.js/issues/368), some wildcard searches over long tokens could be extremely slow, potentially pinning the current thread indefinitely. Thanks [Kyle Spearrin](https://github.com/kspearrin) and [Mohamed Eltuhamy](https://github.com/meltuhamy) for reporting.
+
+## 2.3.2
+
+* Fix bug [#369](https://github.com/olivernn/lunr.js/issues/369) in parsing queries that include either a boost or edit distance modifier followed by a presence modifier on a subsequent term. Thanks [mtdjr](https://github.com/mtdjr) for reporting.
+
+## 2.3.1
+
+* Add workaround for inconsistent browser behaviour [#279](https://github.com/olivernn/lunr.js/issues/279), thanks [Luca Ongaro](https://github.com/lucaong).
+* Fix bug in intersect/union of `lunr.Set` [#360](https://github.com/olivernn/lunr.js/issues/360), thanks [Brandon Bethke](https://github.com/brandon-bethke-neudesic) for reporting.
+
 ## 2.3.0
 
 * Add support for build time field and document boosts.
