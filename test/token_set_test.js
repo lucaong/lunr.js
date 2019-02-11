@@ -273,7 +273,8 @@ suite('lunr.TokenSet', function () {
           x5 = lunr.TokenSet.fromString('ba'),
           x6 = lunr.TokenSet.fromString('foo'),
           x7 = lunr.TokenSet.fromString('bara'),
-          y = lunr.TokenSet.fromFuzzyString('bar', 1)
+          x8 = lunr.TokenSet.fromString('barxx'),
+          y = lunr.TokenSet.fromFuzzyString('bar', 2)
 
       assert.sameMembers(x1.intersect(y).toArray(), ["bbar"])
       assert.sameMembers(x2.intersect(y).toArray(), ["baar"])
@@ -282,6 +283,7 @@ suite('lunr.TokenSet', function () {
       assert.sameMembers(x5.intersect(y).toArray(), ["ba"])
       assert.equal(x6.intersect(y).toArray().length, 0)
       assert.sameMembers(x7.intersect(y).toArray(), ["bara"])
+      assert.sameMembers(x8.intersect(y).toArray(), ["barxx"])
     })
 
     test('intersect with fuzzy string transpose', function () {
